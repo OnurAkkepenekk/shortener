@@ -23,17 +23,10 @@ const Shorter = () => {
         setUrl(res.data.code);
         console.log(res.data.code);
         setText("");
-        linkGetterHandler(url);
       }
     )
   }
-  const linkGetterHandler = (url) => {
-    AxiosGet(`/show/${url}`).then(
-      res => {
-        console.log(res.data);
-      }
-    )
-  }
+
 
   return (
     <PaddingBox>
@@ -41,11 +34,11 @@ const Shorter = () => {
         <h1>Shortener</h1>
         <pre>One link. One Click.<Arrow90degRight /></pre>
         <CustomInput >
-          <input 
-          value={text}
-          onChange={(e) => {
-            setText(e.currentTarget.value);
-          }} type="text" placeholder="Enter URL"></input>
+          <input
+            value={text}
+            onChange={(e) => {
+              setText(e.currentTarget.value);
+            }} type="text" placeholder="Enter URL"></input>
         </CustomInput>
         <Button onClick={linkSendHandler}>Shorten</Button>
       </div>
